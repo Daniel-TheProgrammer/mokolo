@@ -46,6 +46,10 @@ flutter_lints
 2.17
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/lib/
+flutter_svg
+2.12
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.20.0-nullsafety.3/
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.20.0-nullsafety.3/lib/
 get
 2.15
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/
@@ -86,6 +90,14 @@ path
 2.12
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/
+path_drawing
+2.12
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.5.1+1/
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.5.1+1/lib/
+path_parsing
+2.12
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.2.1/
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.2.1/lib/
 path_provider
 2.14
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11/
@@ -114,6 +126,10 @@ path_provider_windows
 2.17
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.1.0/
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.1.0/lib/
+petitparser
+2.16
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0/
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0/lib/
 pin_code_fields
 2.12
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/pin_code_fields-7.4.0/
@@ -170,6 +186,10 @@ xdg_directories
 2.12
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0+1/
 file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0+1/lib/
+xml
+2.16
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.4.1/
+file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.4.1/lib/
 sky_engine
 2.12
 file:///Applications/development/flutter/bin/cache/pkg/sky_engine/
