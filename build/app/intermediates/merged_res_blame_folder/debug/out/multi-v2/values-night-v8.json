@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/danieltheprogrammer/Documents/Daniel Works/mokolo/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/danieltheprogrammer/mokolo/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/danieltheprogrammer/Documents/Daniel Works/mokolo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/danieltheprogrammer/mokolo/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
