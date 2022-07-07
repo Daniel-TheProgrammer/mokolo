@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/color_constants.dart';
 
 class AppTextStyle {
-  static TextStyle mokoloStryle(
+  static TextStyle jakarta(
       {Color? fontColor,
       double? fontSize,
       FontWeight? fontWeight,
       FontStyle? fontStyle,
       TextDecoration? decoration}) {
-    return GoogleFonts.plusJakartaSans(
+    return TextStyle(
+        fontFamily: 'Jakarta',
         color: fontColor ?? CColor.blackMokolo,
         fontWeight: fontWeight ?? FontWeight.w500,
         fontSize: fontSize ?? 14,

@@ -6,5 +6,6 @@ class CColor {
   static Color blackGreyMokolo = const Color(0xff717987);
   static Color bgGreyMokolo = const Color(0xffEEEEEE);
   static Color blueMokolo = const Color(0xff0468DB);
+  static Color greyMokolo = const Color(0xffDCDCDC);
   static Color whiteMokolo = const Color(0xffffffff);
 }

@@ -41,7 +41,7 @@ class OtpScreen extends StatelessWidget {
                 ],
               ),
               Positioned(
-                bottom: 50 + MediaQuery.of(context).viewInsets.bottom,
+                bottom: 10 + MediaQuery.of(context).viewInsets.bottom,
                 left: 0,
                 right: 0,
                 child: ButtonWidget(

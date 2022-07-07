@@ -6,7 +6,7 @@ class Routes {
   static String getStart() => RouteName.startRoute;
   static String getOtp() => RouteName.otpRoute;
   static String getHome() => RouteName.homeRoute;
-
+  static String getBottomNav() => RouteName.bottomNavRoute;
   static String getNext2() => RouteName.next2;
   static String getNext3() => RouteName.next3;
 }

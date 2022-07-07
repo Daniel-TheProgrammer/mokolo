@@ -47,7 +47,7 @@ class StartScreen extends StatelessWidget {
                   buttonName: 'Go to home',
                   type: ButtonType.green,
                   onpressed: () {
-                    Get.offAllNamed(Routes.getHome());
+                    Get.offAllNamed(Routes.getBottomNav());
                   },
                 ),
               ),
@@ -61,7 +61,7 @@ class StartScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 50,
+            height: 28,
           )
         ]),
       ),
