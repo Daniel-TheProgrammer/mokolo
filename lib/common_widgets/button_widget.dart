@@ -29,7 +29,7 @@ class ButtonWidget extends StatelessWidget {
         alignment: Alignment.center,
         height: height ?? 50,
         width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 12),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: type == ButtonType.black
               ? CColor.blackMokolo
@@ -37,6 +37,7 @@ class ButtonWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: CustomTexts.customText(
+            false,
             buttonName,
             14,
             type == ButtonType.black ? CColor.whiteMokolo : CColor.blackMokolo,
@@ -70,12 +71,12 @@ class ButtonOutLine extends StatelessWidget {
         alignment: Alignment.center,
         height: height ?? 50,
         width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 12),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           border: Border.all(color: CColor.blackMokolo),
           borderRadius: BorderRadius.circular(12.0),
         ),
-        child: CustomTexts.customText(buttonName, 14, CColor.blackMokolo,
+        child: CustomTexts.customText(false, buttonName, 14, CColor.blackMokolo,
             FontWeight.w500, FontStyle.normal),
       ),
     );
@@ -107,7 +108,7 @@ class ButtonWidgetOpa extends StatelessWidget {
         alignment: Alignment.center,
         height: height ?? 50,
         width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 12),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: type == ButtonType.black
               ? CColor.blackMokolo.withOpacity(0.3)
@@ -115,6 +116,7 @@ class ButtonWidgetOpa extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: CustomTexts.customText(
+            false,
             buttonName,
             15,
             type == ButtonType.black

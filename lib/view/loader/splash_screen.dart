@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: CColor.greenMokolo,
       body: Center(
-          child: CustomTexts.customText("mokolo", 50, CColor.blackMokolo,
+          child: CustomTexts.customText(false, "mokolo", 50, CColor.blackMokolo,
               FontWeight.w900, FontStyle.italic)),
     );
   }

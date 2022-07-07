@@ -4,11 +4,11 @@ import 'package:mokolo/constants/color_constants.dart';
 import 'custom_text.dart';
 
 class CustomTexts {
-  static Widget customText(cTxt, double size, color, weight, style) {
+  static Widget customText(isCenter, cTxt, double size, color, weight, style) {
     return Text(
       cTxt,
-      maxLines: 3,
-      textAlign: TextAlign.center,
+      maxLines: 2,
+      textAlign: isCenter == true ? TextAlign.center : TextAlign.left,
       overflow: TextOverflow.ellipsis,
       style: AppTextStyle.jakarta(
           fontStyle: style,

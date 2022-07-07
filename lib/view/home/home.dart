@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../slider/welcome_slider.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -22,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.all(8),
+          margin: const EdgeInsets.only(left: 16, right: 16, top: 0, bottom: 5),
           child: Stack(
             children: [
               positionedImageBackground(size),
@@ -34,13 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-SizedBox positionedImageBackground(Size size) {
-  return SizedBox(
-    height: size.height - 130,
-    width: size.width,
+Card positionedImageBackground(Size size) {
+  return Card(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     child: Container(
+      height: size.height - 130,
+      width: size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(10),
         image: const DecorationImage(
           image: AssetImage("assets/illus/lady.png"),
           fit: BoxFit.cover,

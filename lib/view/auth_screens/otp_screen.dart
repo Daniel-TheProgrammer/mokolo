@@ -20,8 +20,8 @@ class OtpScreen extends StatelessWidget {
             "Please enter the code we have sent to \n+237 650 18 57 27", true),
         body: SafeArea(
           child: Container(
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(8),
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.all(16),
             child: Stack(children: <Widget>[
               Column(
                 children: [
@@ -29,14 +29,18 @@ class OtpScreen extends StatelessWidget {
                     value: "1234",
                     controller: otp,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CustomTexts.customText(
-                        "Resend code in 0:30",
-                        16,
-                        CColor.blackGreyMokolo,
-                        FontWeight.w500,
-                        FontStyle.normal),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: CustomTexts.customText(
+                          false,
+                          "Resend code in 0:30",
+                          14,
+                          CColor.blackGreyMokolo,
+                          FontWeight.w400,
+                          FontStyle.normal),
+                    ),
                   ),
                 ],
               ),

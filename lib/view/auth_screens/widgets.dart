@@ -7,12 +7,12 @@ import '../../constants/color_constants.dart';
 class AuthWidgets {
   static PreferredSize appBar(title, subtitle, isLeading) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(130.0),
+      preferredSize: const Size.fromHeight(130.0),
       child: AppBar(
         // toolbarHeight: isLeading == false ? 95 : 120,
         automaticallyImplyLeading: false,
         flexibleSpace: Container(
-          margin: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -20,8 +20,8 @@ class AuthWidgets {
                 height: 40,
               ),
               isLeading == false
-                  ? CustomTexts.customText(title, 22, CColor.blackMokolo,
-                      FontWeight.w600, FontStyle.normal)
+                  ? CustomTexts.customText(false, title, 24, CColor.blackMokolo,
+                      FontWeight.w500, FontStyle.normal)
                   : Row(
                       children: [
                         GestureDetector(
@@ -33,18 +33,27 @@ class AuthWidgets {
                             child: Icon(Icons.arrow_back),
                           ),
                         ),
-                        CustomTexts.customText(title, 22, CColor.blackMokolo,
-                            FontWeight.w600, FontStyle.normal),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 6),
+                          child: CustomTexts.customText(
+                              false,
+                              title,
+                              24,
+                              CColor.blackMokolo,
+                              FontWeight.w500,
+                              FontStyle.normal),
+                        ),
                       ],
                     ),
               isLeading == false
                   ? Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.only(top: 6),
                       child: CustomTexts.customText(
+                          false,
                           subtitle,
-                          15,
+                          16,
                           CColor.blackGreyMokolo,
-                          FontWeight.w500,
+                          FontWeight.w400,
                           FontStyle.normal),
                     )
                   : Row(
@@ -53,10 +62,11 @@ class AuthWidgets {
                           width: 40,
                         ),
                         CustomTexts.customText(
+                            false,
                             subtitle,
-                            15,
+                            16,
                             CColor.blackGreyMokolo,
-                            FontWeight.w500,
+                            FontWeight.w400,
                             FontStyle.normal),
                       ],
                     ),

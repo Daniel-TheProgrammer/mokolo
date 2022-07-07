@@ -7,7 +7,6 @@ import 'package:mokolo/view/profile_screens/profile_sceen.dart';
 import 'package:mokolo/view/search_screens.dart/search.dart';
 
 import '../constants/color_constants.dart';
-import '../view/home/home2.dart';
 import '../view/slider/welcome_slider.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -45,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         backgroundColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: CColor.blackMokolo,
         unselectedItemColor: CColor.greyMokolo,
         currentIndex: currentIndex,
