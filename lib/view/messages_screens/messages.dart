@@ -36,7 +36,8 @@ class _MessagesState extends State<Messages> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
               child: CustomTexts.contentText(
-                "Go to the home page and tap on the “price button” to start a new discussion with a seller.",
+                txt:
+                    "Go to the home page and tap on the “price button” to start a new discussion with a seller.",
               ),
             ),
           ],

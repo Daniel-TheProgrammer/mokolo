@@ -4,14 +4,20 @@ import 'package:mokolo/constants/color_constants.dart';
 
 class InternationalPhone extends StatelessWidget {
   final TextEditingController controller;
+  final String hint;
 
-  const InternationalPhone({Key? key, required this.controller})
+  const InternationalPhone(
+      {Key? key, required this.controller, required this.hint})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: IntlPhoneField(
+        dropdownTextStyle: const TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 16, color: Colors.black),
+        style: const TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 16, color: Colors.black),
         flagsButtonPadding: const EdgeInsets.all(15),
         showDropdownIcon: false,
         controller: controller,
@@ -23,7 +29,7 @@ class InternationalPhone extends StatelessWidget {
             ),
             filled: true,
             contentPadding: const EdgeInsets.all(10),
-            hintText: "Select",
+            hintText: hint,
             fillColor: CColor.bgGreyMokolo),
         initialCountryCode: 'CM',
         onChanged: (phone) {

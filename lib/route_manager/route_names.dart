@@ -5,7 +5,7 @@ class RouteName {
   static String otpRoute = "/otp";
   static String homeRoute = "/home";
   static String bottomNavRoute = "/bottomnav";
-
-  static String next2 = "/next2";
-  static String next3 = "/next3";
+  static String accountRoute = "/account";
+  static String profileSettingsRoute = "/pofilesettings";
+  static String profileEditRoute = "/editprofile";
 }

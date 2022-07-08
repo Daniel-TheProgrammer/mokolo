@@ -5,9 +5,9 @@ import 'package:mokolo/view/auth_screens/otp_screen.dart';
 import 'package:mokolo/view/auth_screens/start_screen.dart';
 import 'package:mokolo/view/home/home.dart';
 import 'package:mokolo/view/loader/splash_screen.dart';
-
-import '../view/home/home2.dart';
-import '../view/home/home3.dart';
+import 'package:mokolo/view/profile_screens/edit_profile.dart';
+import 'package:mokolo/view/profile_screens/profile_settings.dart';
+import '../view/profile_screens/profile_sceen.dart';
 import 'route_names.dart';
 
 const duration = Duration(milliseconds: 500);
@@ -52,16 +52,22 @@ class RoutesPages {
       transitionDuration: duration,
     ),
     GetPage(
-      name: RouteName.next2,
-      page: () => const Home2Screen(),
+      name: RouteName.accountRoute,
+      page: () => const AccountScreen(),
       transition: transition,
       transitionDuration: duration,
     ),
     GetPage(
-      name: RouteName.next3,
-      page: () => const Home3Screen(),
+      name: RouteName.profileEditRoute,
+      page: () => const EditProfile(),
       transition: transition,
       transitionDuration: duration,
-    )
+    ),
+    GetPage(
+      name: RouteName.profileSettingsRoute,
+      page: () => const ProfileSettings(),
+      transition: transition,
+      transitionDuration: duration,
+    ),
   ];
 }

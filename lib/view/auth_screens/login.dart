@@ -23,6 +23,7 @@ class Login extends StatelessWidget {
               Column(
                 children: [
                   InternationalPhone(
+                    hint: "Mobile number",
                     controller: phopne,
                   ),
                 ],

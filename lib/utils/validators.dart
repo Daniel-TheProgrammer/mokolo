@@ -1,7 +1,7 @@
-class Validate {
-  static String? txtvalidator(String value) {
+class Validators {
+  static String? txtvalidator(String value, String errMsg) {
     if (value.length < 3) {
-      return "Invalid";
+      return errMsg;
     } else {
       return null;
     }

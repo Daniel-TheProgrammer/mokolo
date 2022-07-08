@@ -40,6 +40,8 @@ dependencies:
   flutter_svg: ^1.1.1+1
   smooth_page_indicator: ^1.0.0+2
   carousel_slider: ^4.1.1
+  country_state_city_picker: ^1.2.8
+  country_list_pick: ^1.0.1+6
 
 dev_dependencies:
   flutter_test:

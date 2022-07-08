@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'Interval Students app',
       theme: lightTheme,
       getPages: RoutesPages.routes,
-      initialRoute: Routes.getSplash(),
+      initialRoute: Routes.getBottomNav(),
     );
   }
 }

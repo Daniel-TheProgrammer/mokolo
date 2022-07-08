@@ -53,15 +53,15 @@ class CustomTexts {
     );
   }
 
-  static Widget contentText(text) {
+  static Widget contentText({String? txt, Color? clr, double? size}) {
     return Text(
-      text,
+      txt ?? "",
       maxLines: 3,
       textAlign: TextAlign.center,
       overflow: TextOverflow.ellipsis,
       style: AppTextStyle.jakarta(
-          fontSize: 14,
-          fontColor: CColor.blackGreyMokolo,
+          fontSize: size ?? 14,
+          fontColor: clr ?? CColor.blackGreyMokolo,
           fontWeight: FontWeight.w400),
     );
   }

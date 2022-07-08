@@ -8,4 +8,5 @@ class CColor {
   static Color blueMokolo = const Color(0xff0468DB);
   static Color greyMokolo = const Color(0xffDCDCDC);
   static Color whiteMokolo = const Color(0xffffffff);
+  static Color cardBgGrey = const Color(0xffF5F5F5);
 }
