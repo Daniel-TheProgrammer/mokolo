@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mokolo/common_widgets/text_wisgets.dart';
 import 'package:mokolo/constants/color_constants.dart';
+
+import '../../route_manager/route.dart';
 
 class ProfileSettings extends StatelessWidget {
   const ProfileSettings({Key? key}) : super(key: key);
@@ -12,9 +15,14 @@ class ProfileSettings extends StatelessWidget {
         centerTitle: true,
         backgroundColor: CColor.greenMokolo,
         title: const Text("Settings"),
-        leading: Icon(
-          Icons.arrow_back_sharp,
-          color: CColor.whiteMokolo,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back_sharp,
+            color: CColor.whiteMokolo,
+          ),
         ),
         elevation: 0,
       ),
@@ -38,7 +46,9 @@ class ProfileSettings extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    listItem("Edit my profile", false, null),
+                    listItem("Edit my profile", false, () {
+                      Get.toNamed(Routes.getEditProfile());
+                    }),
                     const Divider(),
                     listItem("Share profile", false, null),
                     // const Divider(),

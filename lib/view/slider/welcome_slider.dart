@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:mokolo/common_widgets/text_wisgets.dart';
 import 'package:mokolo/view/slider/loader_widgets.dart';
 
-import '../../constants/color_constants.dart';
 import '../../constants/slider_list.dart';
-import '../../route_manager/route.dart';
 
 class Curosel extends StatefulWidget {
   final double height;
   const Curosel({Key? key, required this.height}) : super(key: key);
 
   @override
-  _CuroselState createState() => _CuroselState();
+  State<Curosel> createState() => _CuroselState();
 }
 
 class _CuroselState extends State<Curosel> {

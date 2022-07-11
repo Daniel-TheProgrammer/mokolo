@@ -1,4 +1,4 @@
-# Mokolo App
+# mokolo
 
 A new Flutter project.
 

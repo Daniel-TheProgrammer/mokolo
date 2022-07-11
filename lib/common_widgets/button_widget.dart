@@ -128,3 +128,50 @@ class ButtonWidgetOpa extends StatelessWidget {
     );
   }
 }
+
+class ButtonHome extends StatelessWidget {
+  final String amount;
+
+  final double? height;
+  final void Function()? onpressed;
+
+  const ButtonHome({
+    Key? key,
+    required this.amount,
+    this.height,
+    this.onpressed,
+  }) : super(key: key);
+  static const txtStyle =
+      TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onpressed,
+      child: Container(
+        alignment: Alignment.center,
+        height: height ?? 50,
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: CColor.greenMokolo,
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomTexts.contentText(
+                  txt: '$amount FCFA', clr: CColor.blackMokolo, size: 14),
+              const Spacer(),
+              CustomTexts.contentText(
+                  txt: "Buy", clr: CColor.blackMokolo, size: 14),
+              const Icon(Icons.arrow_right)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

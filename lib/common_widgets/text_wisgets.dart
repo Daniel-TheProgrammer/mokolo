@@ -56,7 +56,7 @@ class CustomTexts {
   static Widget contentText({String? txt, Color? clr, double? size}) {
     return Text(
       txt ?? "",
-      maxLines: 3,
+      maxLines: 10,
       textAlign: TextAlign.center,
       overflow: TextOverflow.ellipsis,
       style: AppTextStyle.jakarta(

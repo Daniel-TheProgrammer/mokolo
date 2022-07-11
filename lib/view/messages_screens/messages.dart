@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../common_widgets/text_wisgets.dart';
@@ -20,28 +18,26 @@ class _MessagesState extends State<Messages> {
         automaticallyImplyLeading: false,
         title: CustomTexts.subHeadText("Messages"),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              "assets/illus/msg.svg",
-              fit: BoxFit.fitWidth,
+      body: Column(
+        children: [
+          SvgPicture.asset(
+            "assets/illus/msg.svg",
+            fit: BoxFit.fitWidth,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            child: CustomTexts.subHeadText(
+              "No message found",
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              child: CustomTexts.subHeadText(
-                "No message found",
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+            child: CustomTexts.contentText(
+              txt:
+                  "Go to the home page and tap on the “price button” to start a new discussion with a seller.",
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-              child: CustomTexts.contentText(
-                txt:
-                    "Go to the home page and tap on the “price button” to start a new discussion with a seller.",
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

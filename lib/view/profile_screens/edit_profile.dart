@@ -1,5 +1,6 @@
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../common_widgets/button_widget.dart';
 import '../../common_widgets/international_phone.dart';
@@ -31,9 +32,14 @@ class _EditProfileState extends State<EditProfile> {
         centerTitle: true,
         backgroundColor: CColor.greenMokolo,
         title: const Text("Edit profile"),
-        leading: Icon(
-          Icons.arrow_back_sharp,
-          color: CColor.whiteMokolo,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back_sharp,
+            color: CColor.whiteMokolo,
+          ),
         ),
         elevation: 0,
       ),
@@ -96,7 +102,7 @@ class _EditProfileState extends State<EditProfile> {
             // or
             // initialSelection: 'US'
             onChanged: (CountryCode? code) {
-              print(code);
+              //  print(code);
             },
           ),
           const Spacer(),

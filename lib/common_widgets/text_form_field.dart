@@ -78,19 +78,15 @@ class _TextAreaWidgetState extends State<TextAreaWidget> {
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
             errorMaxLines: 2,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              borderSide: BorderSide.none,
+            ),
             filled: true,
-
-            // focusedErrorBorder: OutlineInputBorder(
-            //   borderRadius: BorderRadius.circular(16.0),
-            //   borderSide: const BorderSide(
-            //     color: Colors.black87,
-            //     width: 1.0,
-            //   ),
-            // ),
             contentPadding:
                 const EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
             hintText: widget.controller.text,
-            fillColor: Colors.white),
+            fillColor: CColor.greyMokolo),
         validator: (value) {
           if (value!.isEmpty) {
             return widget.errMsg;
