@@ -24,7 +24,7 @@ class EditProState extends State<EditPro> {
         leading: const Icon(Icons.arrow_back_sharp),
         elevation: 0,
       ),
-      body: editProfile(),
+      body: const editProfile(),
     );
   }
 }
