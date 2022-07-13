@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,10 @@ import 'package:mokolo/utils/themes.dart';
 import 'route_manager/route.dart';
 import 'route_manager/route_pages.dart';
 
-void main() async {
+List<CameraDescription>? cameras;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])

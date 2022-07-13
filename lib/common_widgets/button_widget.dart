@@ -151,7 +151,6 @@ class ButtonHome extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: height ?? 50,
-        width: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: CColor.greenMokolo,

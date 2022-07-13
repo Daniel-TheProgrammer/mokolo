@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mokolo/view/home/home.dart';
-import 'package:mokolo/view/list_item_screens/add_list_screen.dart';
 import 'package:mokolo/view/messages_screens/messages.dart';
 import 'package:mokolo/view/profile_screens/profile_sceen.dart';
 import 'package:mokolo/view/search_screens.dart/search.dart';
 
 import '../constants/color_constants.dart';
+import '../view/list_item_screens/add_listing.dart';
 import '../view/slider/welcome_slider.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -26,6 +26,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const Messages(),
     const AccountScreen()
   ];
+
+  void onItemTapped(int index) {
+    if (index != 2) {
+      setState(() {
+        currentIndex = index;
+      });
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const AddListing()),
+      );
+    }
+  }
 
   @override
   void initState() {
@@ -50,9 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         currentIndex: currentIndex,
         iconSize: 30,
         onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+          onItemTapped(index);
         },
         items: [
           BottomNavigationBarItem(

@@ -25,18 +25,17 @@ class HomeWidgets {
     );
   }
 
-  static buttonWidget(void Function()? onTap) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      child: Align(
-          alignment: FractionalOffset.bottomCenter,
-          child: Positioned(
-            bottom: 0,
-            child: ButtonHome(
-              onpressed: onTap,
-              amount: '25000',
-            ),
-          )),
+  static buttonWidget(Size size, void Function()? onTap) {
+    return Positioned(
+      bottom: 2,
+      child: Container(
+        width: size.width - 32,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        child: ButtonHome(
+          onpressed: onTap,
+          amount: '25000',
+        ),
+      ),
     );
   }
 
@@ -97,8 +96,8 @@ class HomeWidgets {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 60,
-        width: 60,
+        height: 50,
+        width: 50,
         margin: const EdgeInsets.all(4),
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -107,6 +106,7 @@ class HomeWidgets {
           Icon(
             icon,
             color: Colors.white,
+            size: 22,
           ),
           CustomTexts.customText(false, content, 12, CColor.whiteMokolo,
               FontWeight.w400, FontStyle.normal),

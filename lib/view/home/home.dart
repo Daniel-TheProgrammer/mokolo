@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Stack(
             children: [
               HomeWidgets.positionedImageBackground(size),
-              HomeWidgets.buttonWidget(() {
+              HomeWidgets.buttonWidget(size, () {
                 HomeWidgets.converBottomSheet(context, converController);
               }),
               HomeWidgets.followWidget(true),
@@ -43,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
   columnIcons() {
     return Positioned(
       bottom: 70,
-      right: 10,
+      right: 5,
       child: Column(
         children: [
-          HomeWidgets.bubbleWidget(Icons.person, "500K", () {}),
-          HomeWidgets.bubbleWidget(Icons.person, "300", () {}),
-          HomeWidgets.bubbleWidget(Icons.person, "Info", () {
+          HomeWidgets.bubbleWidget(Icons.favorite, "500K", () {}),
+          HomeWidgets.bubbleWidget(Icons.remove_red_eye, "300", () {}),
+          HomeWidgets.bubbleWidget(Icons.report, "Info", () {
             HomeWidgets.infoBottomSheet(context);
           }),
         ],
