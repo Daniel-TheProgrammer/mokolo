@@ -13,6 +13,7 @@ class Messages extends StatefulWidget {
 class _MessagesState extends State<Messages> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -20,9 +21,11 @@ class _MessagesState extends State<Messages> {
       ),
       body: Column(
         children: [
-          SvgPicture.asset(
-            "assets/illus/msg.svg",
-            fit: BoxFit.fitWidth,
+          Expanded(
+            child: SvgPicture.asset(
+              "assets/illus/msg.svg",
+              fit: BoxFit.contain,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -37,6 +40,9 @@ class _MessagesState extends State<Messages> {
                   "Go to the home page and tap on the “price button” to start a new discussion with a seller.",
             ),
           ),
+          const SizedBox(
+            height: 20,
+          )
         ],
       ),
     );

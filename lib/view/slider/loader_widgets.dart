@@ -20,7 +20,7 @@ Widget buildIndecator(activeIndex, sliderList) {
       count: sliderList.length);
 }
 
-Widget navigationRow(activeIndex, controller) {
+Widget navigationRow(activeIndex, controller, HeightType resp) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -29,7 +29,7 @@ Widget navigationRow(activeIndex, controller) {
       //     :
       Expanded(
         child: ButtonOutLine(
-          height: 50,
+          height: resp == HeightType.small ? 40 : 50,
           onpressed: () {
             activeIndex == 0
                 ? Get.back()
@@ -48,7 +48,7 @@ Widget navigationRow(activeIndex, controller) {
       ),
       Expanded(
         child: ButtonWidget(
-          height: 50,
+          height: resp == HeightType.small ? 40 : 50,
           onpressed: () {
             activeIndex == 2
                 ? Get.back()
@@ -63,17 +63,16 @@ Widget navigationRow(activeIndex, controller) {
   );
 }
 
-Widget textWidget(
-  activeIndex,
-  sliderList,
-) {
+Widget textWidget(activeIndex, sliderList, HeightType resp) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: resp == HeightType.small
+        ? const EdgeInsets.all(4.0)
+        : const EdgeInsets.all(8.0),
     child: Text(
       sliderList[activeIndex]['caption'].toString(),
       textAlign: TextAlign.center,
       style: AppTextStyle.jakarta(
-          fontSize: 14,
+          fontSize: resp == HeightType.small ? 13 : 14,
           fontColor: CColor.blackMokolo,
           fontWeight: FontWeight.w400),
     ),

@@ -1,8 +1,13 @@
+import 'dart:async';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:mokolo/view/list_item_screens/video_player.dart';
-
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:mokolo/common_widgets/text_wisgets.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../main.dart';
+import '../../route_manager/route.dart';
 
 class AddListing extends StatefulWidget {
   const AddListing({Key? key}) : super(key: key);
@@ -14,6 +19,7 @@ class AddListing extends StatefulWidget {
 class _AddListingState extends State<AddListing> {
   late CameraController controller;
   late Future<void> initializeControllerFuture;
+  final ImagePicker _picker = ImagePicker();
   @override
   void initState() {
     super.initState();
@@ -26,7 +32,36 @@ class _AddListingState extends State<AddListing> {
   @override
   void dispose() {
     controller.dispose();
+    timer!.cancel();
     super.dispose();
+  }
+
+  int start = 0;
+  Timer? timer;
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    timer = Timer.periodic(
+      oneSec,
+      (Timer timer) async {
+        if (start == 15 && controller.value.isRecordingVideo) {
+          isPlaying = false;
+          stopTimer();
+          final vFile = await controller.stopVideoRecording();
+          setState(() {
+            videoFile = vFile;
+            Get.toNamed(Routes.getVideoPlay(), arguments: videoFile!);
+          });
+        } else {
+          setState(() {
+            start++;
+          });
+        }
+      },
+    );
+  }
+
+  stopTimer() {
+    timer!.cancel();
   }
 
   bool isPlaying = false;
@@ -45,76 +80,86 @@ class _AddListingState extends State<AddListing> {
                     height: MediaQuery.of(context).size.height,
                     child: CameraPreview(controller)),
                 Positioned(
-                  bottom: 20,
-                  right: 5,
-                  child: videoFile != null
-                      ? GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => VideoPlayerWidget(
-                                          videoFile: videoFile!,
-                                        )));
-                          },
-                          child: const Icon(
-                            Icons.arrow_circle_right,
-                            size: 40,
-                            color: Colors.orange,
-                          ),
-                        )
-                      : const SizedBox(),
-                ),
+                    bottom: 40,
+                    left: 50,
+                    child: GestureDetector(
+                      onTap: () async {
+                        await pickVideo();
+                      },
+                      child: SvgPicture.asset(
+                        "assets/icons/upload.svg",
+                        fit: BoxFit.fitWidth,
+                      ),
+                    )),
                 Positioned(
                     child: Align(
                         alignment: Alignment.bottomCenter,
-                        child: isPlaying == false
-                            ? RawMaterialButton(
-                                onPressed: () async {
-                                  try {
-                                    await initializeControllerFuture;
-                                    // path = join(
-                                    //     (await getApplicationSupportDirectory())
-                                    //         .path,
-                                    //     '${DateTime.now()}.mp4');
+                        child: SizedBox(
+                          height: 120,
+                          width: 80,
+                          child: Column(
+                            children: [
+                              CustomTexts.contentText(
+                                  txt: '$start Sec',
+                                  size: 16,
+                                  clr: Colors.white),
+                              const Spacer(),
+                              isPlaying == false
+                                  ? RawMaterialButton(
+                                      onPressed: () async {
+                                        try {
+                                          await initializeControllerFuture;
+                                          // path = join(
+                                          //     (await getApplicationSupportDirectory())
+                                          //         .path,
+                                          //     '${DateTime.now()}.mp4');
 
-                                    setState(() {
-                                      isPlaying = true;
-                                      controller.startVideoRecording();
-                                    });
-                                  } catch (e) {
-                                    //  print(e);
-                                  }
-                                },
-                                padding: const EdgeInsets.all(10),
-                                shape: const CircleBorder(),
-                                child: const Icon(
-                                  Icons.camera,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                              )
-                            : Align(
-                                alignment: Alignment.bottomCenter,
-                                child: RawMaterialButton(
-                                  onPressed: () async {
-                                    isPlaying = false;
-                                    final vFile =
-                                        await controller.stopVideoRecording();
-                                    setState(() {
-                                      // print(vFile.path);
+                                          setState(() {
+                                            start = 0;
+                                            isPlaying = true;
+                                            controller
+                                                .startVideoRecording()
+                                                .then((value) => startTimer());
+                                          });
+                                        } catch (e) {
+                                          //  print(e);
+                                        }
+                                      },
+                                      shape: const CircleBorder(),
+                                      child: SvgPicture.asset(
+                                        "assets/icons/stop.svg",
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                    )
+                                  : Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: RawMaterialButton(
+                                        onPressed: () async {
+                                          if (controller
+                                              .value.isRecordingVideo) {
+                                            isPlaying = false;
+                                            final vFile = await controller
+                                                .stopVideoRecording();
+                                            setState(() {
+                                              // print(vFile.path);
 
-                                      videoFile = vFile;
-                                    });
-                                  },
-                                  padding: const EdgeInsets.all(10),
-                                  shape: const CircleBorder(),
-                                  child: const Icon(
-                                    Icons.stop,
-                                    size: 50,
-                                    color: Colors.red,
-                                  ),
-                                ))))
+                                              videoFile = vFile;
+                                              stopTimer();
+                                              Get.toNamed(Routes.getVideoPlay(),
+                                                  arguments: videoFile!);
+                                            });
+                                          }
+                                        },
+                                        shape: const CircleBorder(),
+                                        child: SvgPicture.asset(
+                                          "assets/icons/play.svg",
+                                          fit: BoxFit.fitWidth,
+                                        ),
+                                      )),
+                              const Spacer(),
+                            ],
+                          ),
+                        )))
               ],
             );
           } else {
@@ -125,5 +170,17 @@ class _AddListingState extends State<AddListing> {
         },
       ),
     );
+  }
+
+  Future pickVideo() async {
+    const source = ImageSource.gallery;
+
+    final XFile? pVideo = await _picker.pickVideo(source: source);
+
+    if (pVideo != null) {
+      setState(() {
+        videoFile = pVideo;
+      });
+    }
   }
 }

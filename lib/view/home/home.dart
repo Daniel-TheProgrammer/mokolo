@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mokolo/constants/enums.dart';
 import 'home_widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,12 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
           margin: const EdgeInsets.only(left: 16, right: 16, top: 0, bottom: 5),
           child: Stack(
             children: [
-              HomeWidgets.positionedImageBackground(size),
+              HomeWidgets.positionedImageBackground(
+                  size, size.height < 600 ? HeightType.small : HeightType.big),
               HomeWidgets.buttonWidget(size, () {
                 HomeWidgets.converBottomSheet(context, converController);
               }),
               HomeWidgets.followWidget(true),
-              columnIcons(),
+              columnIcons(
+                  size.height < 600 ? HeightType.small : HeightType.big),
             ],
           ),
         ),
@@ -40,9 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  columnIcons() {
+  columnIcons(HeightType res) {
     return Positioned(
-      bottom: 70,
+      bottom: res == HeightType.small ? 125 : 70,
       right: 5,
       child: Column(
         children: [

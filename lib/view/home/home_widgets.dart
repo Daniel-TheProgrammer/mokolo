@@ -8,11 +8,12 @@ import '../../common_widgets/text_wisgets.dart';
 import '../../constants/color_constants.dart';
 
 class HomeWidgets {
-  static Card positionedImageBackground(Size size) {
+  static Card positionedImageBackground(Size size, HeightType resp) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
-        height: size.height - 130,
+        height:
+            resp == HeightType.small ? size.height - 100 : size.height - 120,
         width: size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -154,7 +155,11 @@ class HomeWidgets {
                       )
                     ],
                   ),
-                  TextAreaWidget(controller: controller, errMsg: "Required"),
+                  TextAreaWidget(
+                    controller: controller,
+                    errMsg: "Required",
+                    hint: controller.text,
+                  ),
                   const ButtonWidget(
                       buttonName: "Start the discussion",
                       type: ButtonType.green)

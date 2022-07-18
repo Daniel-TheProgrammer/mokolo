@@ -6,6 +6,7 @@ import 'package:mokolo/view/profile_screens/profile_sceen.dart';
 import 'package:mokolo/view/search_screens.dart/search.dart';
 
 import '../constants/color_constants.dart';
+import '../constants/enums.dart';
 import '../view/list_item_screens/add_listing.dart';
 import '../view/slider/welcome_slider.dart';
 
@@ -98,6 +99,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   void modalBottomSheetMenu(context) {
+    final height = MediaQuery.of(context).size.height;
+
     showModalBottomSheet(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -110,7 +113,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           return Container(
             height: 450.0,
             color: Colors.transparent,
-            child: const Curosel(
+            child: Curosel(
+              resp: height < 600 ? HeightType.small : HeightType.big,
               height: 450,
             ),
           );

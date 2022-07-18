@@ -10,4 +10,6 @@ class Routes {
   static String getAccount() => RouteName.accountRoute;
   static String getSettingsProfile() => RouteName.profileSettingsRoute;
   static String getEditProfile() => RouteName.profileEditRoute;
+  static String getVideoPlay() => RouteName.videoPlay;
+  static String getProductDetails() => RouteName.productDetails;
 }

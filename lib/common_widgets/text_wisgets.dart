@@ -7,7 +7,7 @@ class CustomTexts {
   static Widget customText(isCenter, cTxt, double size, color, weight, style) {
     return Text(
       cTxt,
-      maxLines: 2,
+      maxLines: 3,
       textAlign: isCenter == true ? TextAlign.center : TextAlign.left,
       overflow: TextOverflow.ellipsis,
       style: AppTextStyle.jakarta(
@@ -62,7 +62,7 @@ class CustomTexts {
       style: AppTextStyle.jakarta(
           fontSize: size ?? 14,
           fontColor: clr ?? CColor.blackGreyMokolo,
-          fontWeight: FontWeight.w400),
+          fontWeight: FontWeight.w500),
     );
   }
 }

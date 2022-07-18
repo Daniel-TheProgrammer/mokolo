@@ -51,7 +51,7 @@ class AuthWidgets {
                       child: CustomTexts.customText(
                           false,
                           subtitle,
-                          16,
+                          14,
                           CColor.blackGreyMokolo,
                           FontWeight.w400,
                           FontStyle.normal),
@@ -64,7 +64,7 @@ class AuthWidgets {
                         CustomTexts.customText(
                             false,
                             subtitle,
-                            16,
+                            14,
                             CColor.blackGreyMokolo,
                             FontWeight.w400,
                             FontStyle.normal),

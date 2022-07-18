@@ -8,4 +8,6 @@ class RouteName {
   static String accountRoute = "/account";
   static String profileSettingsRoute = "/pofilesettings";
   static String profileEditRoute = "/editprofile";
+  static String videoPlay = "/videoplay";
+  static String productDetails = "/productdetails";
 }

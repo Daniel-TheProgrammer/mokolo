@@ -54,11 +54,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
 class TextAreaWidget extends StatefulWidget {
   final TextEditingController controller;
-
+  final String hint;
   final String errMsg;
 
   const TextAreaWidget(
-      {Key? key, required this.controller, required this.errMsg})
+      {Key? key,
+      required this.controller,
+      required this.errMsg,
+      required this.hint})
       : super(key: key);
   static const txtStyle = TextStyle(fontSize: 14, fontWeight: FontWeight.w600);
 
@@ -74,7 +77,7 @@ class _TextAreaWidgetState extends State<TextAreaWidget> {
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: widget.controller,
-        maxLines: 7,
+        maxLines: 6,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
             errorMaxLines: 2,
@@ -85,8 +88,8 @@ class _TextAreaWidgetState extends State<TextAreaWidget> {
             filled: true,
             contentPadding:
                 const EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-            hintText: widget.controller.text,
-            fillColor: CColor.greyMokolo),
+            hintText: widget.hint,
+            fillColor: CColor.bgGreyMokolo),
         validator: (value) {
           if (value!.isEmpty) {
             return widget.errMsg;

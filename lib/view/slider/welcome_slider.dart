@@ -4,11 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mokolo/common_widgets/text_wisgets.dart';
 import 'package:mokolo/view/slider/loader_widgets.dart';
 
+import '../../constants/enums.dart';
 import '../../constants/slider_list.dart';
 
 class Curosel extends StatefulWidget {
   final double height;
-  const Curosel({Key? key, required this.height}) : super(key: key);
+  final HeightType resp;
+  const Curosel({Key? key, required this.height, required this.resp})
+      : super(key: key);
 
   @override
   State<Curosel> createState() => _CuroselState();
@@ -41,7 +44,9 @@ class _CuroselState extends State<Curosel> {
           ),
           const Spacer(),
           SizedBox(
-            height: widget.height - 220,
+            height: widget.resp == HeightType.small
+                ? widget.height - 310
+                : widget.height - 220,
             child: CarouselSlider.builder(
               carouselController: controller,
               itemCount: sliderList.length,
@@ -69,11 +74,11 @@ class _CuroselState extends State<Curosel> {
             ),
           ),
           const Spacer(),
-          textWidget(activeIndex, sliderList),
+          textWidget(activeIndex, sliderList, widget.resp),
 
           const Spacer(),
 
-          navigationRow(activeIndex, controller),
+          navigationRow(activeIndex, controller, widget.resp),
 
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,

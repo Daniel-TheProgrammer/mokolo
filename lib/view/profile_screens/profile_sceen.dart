@@ -72,6 +72,7 @@ Widget profileCard() {
 
 Widget gridWidget() {
   return GridView.builder(
+      physics: const BouncingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
           childAspectRatio: 2 / 3,

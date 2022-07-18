@@ -4,6 +4,8 @@ import 'package:mokolo/view/auth_screens/login.dart';
 import 'package:mokolo/view/auth_screens/otp_screen.dart';
 import 'package:mokolo/view/auth_screens/start_screen.dart';
 import 'package:mokolo/view/home/home.dart';
+import 'package:mokolo/view/list_item_screens/product_details.dart';
+import 'package:mokolo/view/list_item_screens/video_player.dart';
 import 'package:mokolo/view/loader/splash_screen.dart';
 import 'package:mokolo/view/profile_screens/edit_profile.dart';
 import 'package:mokolo/view/profile_screens/profile_settings.dart';
@@ -66,6 +68,18 @@ class RoutesPages {
     GetPage(
       name: RouteName.profileSettingsRoute,
       page: () => const ProfileSettings(),
+      transition: transition,
+      transitionDuration: duration,
+    ),
+    GetPage(
+      name: RouteName.videoPlay,
+      page: () => const VideoPlayerWidget(),
+      transition: transition,
+      transitionDuration: duration,
+    ),
+    GetPage(
+      name: RouteName.productDetails,
+      page: () => ProductDetailsScreen(),
       transition: transition,
       transitionDuration: duration,
     ),

@@ -26,6 +26,8 @@ class _EditProfileState extends State<EditProfile> {
   final nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -43,34 +45,46 @@ class _EditProfileState extends State<EditProfile> {
         ),
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Container(
-          height: double.infinity,
-          margin: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              TextFieldWidget(
-                  controller: userName,
-                  errMsg: "Username Required",
-                  hint: 'Username'),
-              TextFieldWidget(
-                  controller: nameController,
-                  errMsg: "Full name Required",
-                  hint: 'Full name'),
-              selectCountry(),
-              selectItem("Select city", null),
-              InternationalPhone(
-                hint: "Whatsapp number",
-                controller: phoneController,
-              ),
-              const Spacer(),
-              const ButtonOutLine(
-                onpressed: null,
-                buttonName: 'Edit',
-              ),
-            ],
+      body: Container(
+        margin: const EdgeInsets.all(20),
+        child: Stack(children: [
+          SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                TextFieldWidget(
+                    controller: userName,
+                    errMsg: "Username Required",
+                    hint: 'Username'),
+                TextFieldWidget(
+                    controller: nameController,
+                    errMsg: "Full name Required",
+                    hint: 'Full name'),
+                selectCountry(),
+                selectItem("Select city", null),
+                InternationalPhone(
+                  hint: "Whatsapp number",
+                  controller: phoneController,
+                ),
+                size.height < 600
+                    ? const ButtonOutLine(
+                        onpressed: null,
+                        buttonName: 'Edit',
+                      )
+                    : const SizedBox()
+              ],
+            ),
           ),
-        ),
+          size.height < 600
+              ? const SizedBox()
+              : const Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ButtonOutLine(
+                    onpressed: null,
+                    buttonName: 'Edit',
+                  ),
+                ),
+        ]),
       ),
     );
   }

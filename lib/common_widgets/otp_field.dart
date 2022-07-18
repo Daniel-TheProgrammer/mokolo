@@ -27,8 +27,6 @@ class PinEntryField extends StatelessWidget {
           fieldOuterPadding: const EdgeInsets.all(2),
           borderRadius: BorderRadius.circular(12),
           borderWidth: 0,
-          fieldHeight: 50,
-          fieldWidth: 50,
           selectedFillColor: CColor.bgGreyMokolo,
           activeFillColor: CColor.bgGreyMokolo,
           inactiveFillColor: CColor.bgGreyMokolo,
