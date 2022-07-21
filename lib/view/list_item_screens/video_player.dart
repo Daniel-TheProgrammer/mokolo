@@ -31,37 +31,70 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       });
   }
 
+  bool isMusicOn = true;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: _controller.value.isInitialized
-                ?
-                //AspectRatio(
-                // aspectRatio: _controller.value.aspectRatio,
-                //   child:
-                VideoPlayer(_controller)
-                //  )
-                : Container(),
+    return Stack(
+      children: [
+        Scaffold(
+          extendBodyBehindAppBar: true,
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            leading: const BackButton(color: Colors.white),
+            title: CustomTexts.contentText(
+                txt: 'Preview', size: 16, clr: Colors.white),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    soundToggle();
+                  },
+                  icon: Icon(
+                    isMusicOn == true ? Icons.volume_up : Icons.volume_off,
+                    color: Colors.white,
+                  )),
+            ],
           ),
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(Routes.getProductDetails());
-            },
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.all(8),
-              alignment: Alignment.topCenter,
-              color: CColor.greenMokolo,
-              child: CustomTexts.customText(false, "Proceed", 14,
-                  CColor.blackMokolo, FontWeight.w500, FontStyle.normal),
-            ),
-          )
-        ],
-      ),
+          body: Column(
+            children: [
+              Expanded(
+                child: _controller.value.isInitialized
+                    ?
+                    //AspectRatio(
+                    // aspectRatio: _controller.value.aspectRatio,
+                    //   child:
+                    VideoPlayer(_controller)
+                    //  )
+                    : Container(),
+              ),
+              GestureDetector(
+                onTap: () {
+                  _controller.pause();
+                  Get.toNamed(Routes.getProductDetails());
+                },
+                child: Container(
+                  height: 60,
+                  padding: const EdgeInsets.all(8),
+                  alignment: Alignment.topCenter,
+                  color: CColor.greenMokolo,
+                  child: CustomTexts.customText(false, "Proceed", 14,
+                      CColor.blackMokolo, FontWeight.w500, FontStyle.normal),
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
+  }
+
+  void soundToggle() {
+    setState(() {
+      isMusicOn == true
+          ? _controller.setVolume(0.0)
+          : _controller.setVolume(1.0);
+      isMusicOn = !isMusicOn;
+    });
   }
 
   @override

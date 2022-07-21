@@ -50,7 +50,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 : Align(
                     alignment: Alignment.bottomCenter,
                     child: ButtonWidget(
-                        buttonName: 'Next',
+                        buttonName: 'Publish',
                         type: ButtonType.green,
                         onpressed: () {
                           Get.toNamed(Routes.getBottomNav());
